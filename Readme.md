@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм» [![Build status][travis-image]][travis-url]
 
 * Студент: [Илья Туров](https://up.htmlacademy.ru/javascript/12/user/240222).
-* Наставник: `Неизвестно`.
+* Наставник: `Без наставника`.
 
 ---
 
