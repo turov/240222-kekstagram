@@ -1,8 +1,5 @@
 'use strict';
 
-var gallery = document.querySelector('.gallery-overlay');
-gallery.classList.remove('hidden');
-
 /* Случайный порядок в массиве */
 var compareRandom = function () {
   return Math.random() - 0.5;
@@ -15,9 +12,18 @@ var getRandomInteger = function (min, max) {
   return rand;
 };
 
+/* Два случайных элемента массива */
+
+var getRandomArray = function (array) {
+  var copiedArray = array.slice();
+  var lengthOfArray = getRandomInteger(1, 2);
+  copiedArray.sort(compareRandom);
+  return copiedArray.splice(0, lengthOfArray);
+};
+
 var generateData = function () {
   var data = [];
-  var pic = generatePhotos(25).sort(compareRandom);
+  var pic = generatePhotos(26).sort(compareRandom);
   var comments = [
     'Всё отлично!',
     'В целом всё неплохо. Но не всё.',
@@ -27,12 +33,15 @@ var generateData = function () {
     'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
   ];
 
-  for (var i = 0; i <= 24; i++) {
+  for (var i = 0; i <= 25; i++) {
     data[i] = {
       'id': i,
       'url': pic[i],
       'likes': getRandomInteger(15, 200),
+      /*
       'comment': comments[getRandomInteger(0, comments.length - 1)]
+       */
+      'comment': getRandomArray(comments)
     };
   }
 
@@ -72,4 +81,10 @@ var fillDocument = function () {
 
 fillDocument();
 
+var gallery = document.querySelector('.gallery-overlay');
+gallery.querySelector('.gallery-overlay-image').src = photoData[0].url;
+gallery.querySelector('.likes-count').textContent = photoData[0].likes;
+gallery.querySelector('.comments-count').textContent = photoData[0].comment.length;
+
+gallery.classList.remove('hidden');
 
