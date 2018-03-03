@@ -3,7 +3,7 @@
 (function () {
   var ESC_KEY = 27;
   var ENTER_KEY = 13;
-  var TIME_OUT = 5000; // 5 секунд
+  var TIME_OUT = 5000;
 
   window.utils = {
     getRandomInt: function (min, max) {

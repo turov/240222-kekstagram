@@ -17,6 +17,8 @@
   var resizeInput = uploadForm.querySelector('.upload-resize-controls-value');
   var hashInput = uploadForm.querySelector('.upload-form-hashtags');
 
+  resizeInput.value = '100%';
+
   uploadForm.addEventListener('submit', onUploadFormSubmit);
 
   uploadFileInput.addEventListener('change', onUploadFileChange);

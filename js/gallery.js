@@ -16,6 +16,9 @@
     e.preventDefault();
     openGallery();
     window.preview.renderPhoto(getPhotoToRender(e.target.parentElement), galleryPhotoPreviewDisplay);
+    if (e.target.classList.contains('container')) {
+      closeGallery();
+    }
   }
 
   function onGalleryPreviewCloseClick() {
